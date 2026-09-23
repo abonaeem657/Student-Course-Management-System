@@ -5,7 +5,7 @@ namespace Student_Course_Management_System.Controllers
 {
     public class StudentController : Controller
     {
-        private List<Student> students = new List<Student>
+        private static List<Student> students = new List<Student>
 {
     new Student { Id = 1, Name = "mohamed", Major = "CS" },
     new Student { Id = 2, Name = "naeem", Major = "AI" },
@@ -29,6 +29,18 @@ namespace Student_Course_Management_System.Controllers
         public IActionResult Create(Student student)
         {
             students.Add(student);
+            return RedirectToAction("Index");
+        }
+        public IActionResult Edit(int id )
+        {
+            Student student=students.FirstOrDefault(c => c.Id == id);
+            if (student == null) { return NotFound(); }
+            return View(student);
+        }
+        [HttpPost]
+        public IActionResult Edit(Student student)
+        {
+            
             return RedirectToAction("Index");
         }
     }
