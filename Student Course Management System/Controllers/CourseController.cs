@@ -22,7 +22,7 @@ namespace Student_Course_Management_System.Controllers
             if (course == null) { return NotFound(); }
             return View(course);
         }
-        public IActionResult Creat()
+        public IActionResult Create()
         {
             return View();
         }
@@ -54,10 +54,35 @@ namespace Student_Course_Management_System.Controllers
             {
                 return View(course);
             }
+            if (oldC == null)
+            {
+                return NotFound();
+            }
             oldC.Name = course.Name;
             oldC.Code = course.Code;
             oldC.CreditHours = course.CreditHours;
             _context.Courses.Update(oldC);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public IActionResult Delete(int id)
+        {
+            Course? course = _context.Courses.FirstOrDefault(c => c.Id == id);
+            if (course == null)
+            {
+                return NotFound();
+            }
+            return View(course);
+        }
+        [HttpPost]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            Course? course = _context.Courses.FirstOrDefault(c => c.Id == id);
+            if (course == null)
+            {
+                return NotFound();
+            }
+            _context.Courses.Remove(course);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
