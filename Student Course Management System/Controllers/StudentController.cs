@@ -5,23 +5,19 @@ namespace Student_Course_Management_System.Controllers
 {
     public class StudentController : Controller
     {
+        private List<Student> students = new List<Student>
+{
+    new Student { Id = 1, Name = "mohamed", Major = "CS" },
+    new Student { Id = 2, Name = "naeem", Major = "AI" },
+    new Student { Id = 3, Name = "ahmed", Major = "SI" }
+};
         public IActionResult Index()
         {
-            List<Student> students = new List<Student>();
-
-            students.Add(new Student { Id = 1, Name = "mohamed", Major = "CS" });
-            students.Add(new Student { Id = 2, Name = "naeem", Major = "AI" });
-            students.Add(new Student { Id = 3, Name = "ahmed", Major = "SI" });
-            if (students == null) { return NotFound(); }
             return View(students);
         }
         public IActionResult Detail(int id)
         {
-            List<Student> students = new List<Student>();
-            students.Add(new Student { Id = 1, Name = "mohamed", Major = "CS" });
-            students.Add(new Student { Id = 2, Name = "naeem", Major = "AI" });
-            students.Add(new Student { Id = 3, Name = "ahmed", Major = "SI" });
-            Student student = students.FirstOrDefault(c => c.Id == id);
+            Student? student = students.FirstOrDefault(c => c.Id == id);
             if (student == null) { return NotFound(); }
             return View(student);
         }
