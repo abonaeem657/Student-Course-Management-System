@@ -21,5 +21,15 @@ namespace Student_Course_Management_System.Controllers
             if (student == null) { return NotFound(); }
             return View(student);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Student student)
+        {
+            students.Add(student);
+            return RedirectToAction("Index");
+        }
     }
 }
