@@ -9,7 +9,7 @@ namespace Student_Course_Management_System.Data
             : base(options)
         {
         }
-
+        public DbSet<Course> Courses { get; set; }
         public DbSet<Student> Students { get; set; }
     }
 }
