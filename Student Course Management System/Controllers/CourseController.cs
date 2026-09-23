@@ -27,13 +27,37 @@ namespace Student_Course_Management_System.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Creat(Course course)
+        public IActionResult Create(Course course)
         {
             if (!ModelState.IsValid)
             {
                 return View(course);
             }
             _context.Courses.Add(course);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public IActionResult Edit(int id)
+        {
+            Course? course = _context.Courses.FirstOrDefault(c => c.Id == id);
+            if (course == null)
+            {
+                return NotFound();
+            }
+            return View(course);
+        }
+        [HttpPost]
+        public IActionResult Edit(Course course)
+        {
+            Course? oldC= _context.Courses.FirstOrDefault(c => c.Id == course.Id);
+            if (!ModelState.IsValid)
+            {
+                return View(course);
+            }
+            oldC.Name = course.Name;
+            oldC.Code = course.Code;
+            oldC.CreditHours = course.CreditHours;
+            _context.Courses.Update(oldC);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }

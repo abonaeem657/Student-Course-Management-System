@@ -1,5 +1,5 @@
 ﻿@model List<Course>
-<a asp-action="Creat">Create New Course</a>
+<a asp-action="Create">Create New Course</a>
 <table>
     <tr>
         <th>id</th>
@@ -14,6 +14,7 @@
             <td>@x.Code</td>
             <td>@x.CreditHours</td>
             <td><a asp-action="Details" asp-route-id="@x.Id">Details</a></td>
+            <td><a asp-action="Edit" asp-route-id="@x.Id">Edit</a></td>
         </tr>
     }
 </table>
