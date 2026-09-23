@@ -7,11 +7,13 @@ namespace Student_Course_Management_System.Controllers
     {
         public IActionResult Index()
         {
-            Student student = new Student();
-            student.Id = 1;
-            student.Name = "Ali";
-            student.Major = "CS";
-            return View(student);
+            List<Student> students = new List<Student>();
+
+            students.Add(new Student { Id = 1, Name = "mohamed", Major = "CS" });
+            students.Add(new Student { Id = 2, Name = "naeem", Major = "AI" });
+            students.Add(new Student { Id = 3, Name = "ahmed", Major = "SI" });
+            if (students == null) { return NotFound(); }
+            return View(students);
         }
         public IActionResult Detail(int id)
         {
@@ -20,6 +22,7 @@ namespace Student_Course_Management_System.Controllers
             students.Add(new Student { Id = 2, Name = "naeem", Major = "AI" });
             students.Add(new Student { Id = 3, Name = "ahmed", Major = "SI" });
             Student student = students.FirstOrDefault(c => c.Id == id);
+            if (student == null) { return NotFound(); }
             return View(student);
         }
     }
