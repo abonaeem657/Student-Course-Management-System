@@ -31,10 +31,11 @@ namespace Student_Course_Management_System.Controllers
             students.Add(student);
             return RedirectToAction("Index");
         }
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-           
-            return View();
+            Student? student = students.FirstOrDefault(c => c.Id == id);
+            if (student == null) { return NotFound(); }
+            return View(student);
         }
         [HttpPost]
         public IActionResult Edit(Student student)
