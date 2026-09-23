@@ -1,23 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Student_Course_Management_System.Models;
+using Student_Course_Management_System.Data;
 
 namespace Student_Course_Management_System.Controllers
 {
     public class StudentController : Controller
     {
-        private static List<Student> students = new List<Student>
-{
-    new Student { Id = 1, Name = "mohamed", Major = "CS" },
-    new Student { Id = 2, Name = "naeem", Major = "AI" },
-    new Student { Id = 3, Name = "ahmed", Major = "SI" }
-};
+        private readonly ApplicationDbContext _context;
+
+        public StudentController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
-            return View(students);
+            return View(_context.Students.ToList());
         }
         public IActionResult Detail(int id)
         {
-            Student? student = students.FirstOrDefault(c => c.Id == id);
+            Student? student = _context.Students.FirstOrDefault(c => c.Id == id);
             if (student == null) { return NotFound(); }
             return View(student);
         }
@@ -28,36 +29,43 @@ namespace Student_Course_Management_System.Controllers
         [HttpPost]
         public IActionResult Create(Student student)
         {
-            students.Add(student);
+            if (!ModelState.IsValid)
+            {
+                return View(student);
+            }
+            _context.Students.Add(student);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
         public IActionResult Edit(int id)
         {
-            Student? student = students.FirstOrDefault(c => c.Id == id);
+            Student? student = _context.Students.FirstOrDefault(c => c.Id == id);
             if (student == null) { return NotFound(); }
             return View(student);
         }
         [HttpPost]
         public IActionResult Edit(Student student)
         {
-            Student? oldstu=students.FirstOrDefault(c=>c.Id==student.Id);
+            Student? oldstu= _context.Students.FirstOrDefault(c=>c.Id==student.Id);
             if (oldstu == null) { return NotFound(); }
             oldstu.Name = student.Name;
             oldstu.Major = student.Major;
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
         public IActionResult Delete(int id)
         {
-            Student? student = students.FirstOrDefault(c => c.Id == id);
+            Student? student = _context.Students.FirstOrDefault(c => c.Id == id);
             if (student == null) { return NotFound(); }
             return View(student);
         }
         [HttpPost]
         public IActionResult Deletee(int id)
         {
-            Student? student = students.FirstOrDefault(c => c.Id == id);
+            Student? student = _context.Students.FirstOrDefault(c => c.Id == id);
             if (student == null) { return NotFound(); }
-            students.Remove(student);
+            _context.Students.Remove(student);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
     }

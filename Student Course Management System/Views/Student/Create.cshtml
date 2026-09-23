@@ -1,16 +1,21 @@
 ﻿@model Student
+
 <form asp-action="Create" method="post">
-    <div>
-        <label asp-for="Id"></label>
-        <input asp-for="Id" />
-    </div>
+
+   
+
     <div>
         <label asp-for="Name"></label>
         <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
     </div>
+
     <div>
         <label asp-for="Major"></label>
         <input asp-for="Major" />
+        <span asp-validation-for="Major"></span>
     </div>
-    <button type="submit" >Save</button>
+
+    <button type="submit">Save</button>
+
 </form>
