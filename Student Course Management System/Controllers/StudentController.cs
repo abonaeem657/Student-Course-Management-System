@@ -31,16 +31,32 @@ namespace Student_Course_Management_System.Controllers
             students.Add(student);
             return RedirectToAction("Index");
         }
-        public IActionResult Edit(int id )
+        public IActionResult Edit()
         {
-            Student student=students.FirstOrDefault(c => c.Id == id);
-            if (student == null) { return NotFound(); }
-            return View(student);
+           
+            return View();
         }
         [HttpPost]
         public IActionResult Edit(Student student)
         {
-            
+            Student? oldstu=students.FirstOrDefault(c=>c.Id==student.Id);
+            if (oldstu == null) { return NotFound(); }
+            oldstu.Name = student.Name;
+            oldstu.Major = student.Major;
+            return RedirectToAction("Index");
+        }
+        public IActionResult Delete(int id)
+        {
+            Student? student = students.FirstOrDefault(c => c.Id == id);
+            if (student == null) { return NotFound(); }
+            return View(student);
+        }
+        [HttpPost]
+        public IActionResult Deletee(int id)
+        {
+            Student? student = students.FirstOrDefault(c => c.Id == id);
+            if (student == null) { return NotFound(); }
+            students.Remove(student);
             return RedirectToAction("Index");
         }
     }
