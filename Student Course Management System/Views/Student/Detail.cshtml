@@ -1,8 +1,4 @@
-﻿@model List<Student>
-@foreach (var x in @Model)
-{
-    <h3>Id: @x.Id</h3>
-    <h3>Name: @x.Name</h3>
-    <h3>Major: @x.Major</h3>
-    <h2></h2>
-}
+﻿@model Student
+<h3>Id: @Model.Id</h3>
+<h3>Name: @Model.Name</h3>
+<h3>Major: @Model.Major</h3>

@@ -1,4 +1,13 @@
-﻿@model Student
-<h3>Id: @Model.Id</h3>
-<h3>Name: @Model.Name</h3>
-<h3>Major: @Model.Major</h3>
+﻿@model List<Student>
+<table border="0">
+    <tr><th>Id</th><th>Name</th><th>Major</th></tr>
+@foreach (var x in @Model)
+{
+    <tr>
+        <td>@x.Id</td>
+        <td>@x.Name</td>
+        <td>@x.Major</td>
+        <td><a asp-action="Detail" asp-route-id="@x.Id">View Details</a></td>
+    </tr>
+}
+</table>
