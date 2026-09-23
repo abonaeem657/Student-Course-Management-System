@@ -3,7 +3,7 @@ using Student_Course_Management_System.Models;
 
 namespace Student_Course_Management_System.Controllers
 {
-    public class StudentsControlled : Controller
+    public class StudentController : Controller
     {
         public IActionResult Index()
         {
