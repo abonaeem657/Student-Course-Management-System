@@ -7,8 +7,4 @@
     <RootNamespace>Student_Course_Management_System</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\student\" />
-  </ItemGroup>
-
 </Project>
