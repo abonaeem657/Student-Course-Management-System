@@ -22,5 +22,20 @@ namespace Student_Course_Management_System.Controllers
             if (course == null) { return NotFound(); }
             return View(course);
         }
+        public IActionResult Creat()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Creat(Course course)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(course);
+            }
+            _context.Courses.Add(course);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
