@@ -91,20 +91,37 @@ namespace Student_Course_Management_System.Controllers
             return View(enrollment);
         }
         [HttpPost]
-        public IActionResult Edit(Enrollment enrollment) { 
+        public IActionResult Edit(Enrollment enrollment)
+        {
             Enrollment? oldE = _context.Enrollments
-        .Include(e => e.Student)
-        .Include(e => e.Course)
-        .FirstOrDefault(e => e.Id == enrollment.Id);
-            if (oldE == null) {return NotFound(); }
+                .FirstOrDefault(e => e.Id == enrollment.Id);
+
+            if (oldE == null)
+            {
+                return NotFound();
+            }
+
+            bool exists = _context.Enrollments.Any(e =>
+                e.StudentId == enrollment.StudentId &&
+                e.CourseId == enrollment.CourseId &&
+                e.Id != enrollment.Id);
+
+            if (exists)
+            {
+                ViewBag.Students = _context.Students.ToList();
+                ViewBag.Courses = _context.Courses.ToList();
+
+                ModelState.AddModelError("", "This student is already enrolled in this course.");
+
+                return View(enrollment);
+            }
+
             oldE.StudentId = enrollment.StudentId;
             oldE.CourseId = enrollment.CourseId;
-            bool exists = _context.Enrollments.Any(e =>
-    e.StudentId == enrollment.StudentId &&
-    e.CourseId == enrollment.CourseId &&
-    e.Id != enrollment.Id);
+
             _context.SaveChanges();
-            return View("Index");
+
+            return RedirectToAction("Index");
         }
 
 
