@@ -64,8 +64,8 @@ namespace Student_Course_Management_System.Controllers
             {
                 return NotFound();
             }
-           
-            return RedirectToAction("enrollment");
+
+            return View(enrollment);
         }
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
@@ -79,6 +79,34 @@ namespace Student_Course_Management_System.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        public IActionResult Edit(int id)
+        {
+            Enrollment? enrollment = _context.Enrollments.Find(id);
+            if (enrollment == null)
+            {
+                return NotFound();
+            }
+            ViewBag.Students = _context.Students.ToList();
+            ViewBag.Courses = _context.Courses.ToList();
+            return View(enrollment);
+        }
+        [HttpPost]
+        public IActionResult Edit(Enrollment enrollment) { 
+            Enrollment? oldE = _context.Enrollments
+        .Include(e => e.Student)
+        .Include(e => e.Course)
+        .FirstOrDefault(e => e.Id == enrollment.Id);
+            if (oldE == null) {return NotFound(); }
+            oldE.StudentId = enrollment.StudentId;
+            oldE.CourseId = enrollment.CourseId;
+            bool exists = _context.Enrollments.Any(e =>
+    e.StudentId == enrollment.StudentId &&
+    e.CourseId == enrollment.CourseId &&
+    e.Id != enrollment.Id);
+            _context.SaveChanges();
+            return View("Index");
+        }
+
 
     }
 }
