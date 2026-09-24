@@ -93,6 +93,14 @@ namespace Student_Course_Management_System.Controllers
         [HttpPost]
         public IActionResult Edit(Enrollment enrollment)
         {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Students = _context.Students.ToList();
+                ViewBag.Courses = _context.Courses.ToList();
+
+                return View(enrollment);
+            }
+
             Enrollment? oldE = _context.Enrollments
                 .FirstOrDefault(e => e.Id == enrollment.Id);
 
@@ -111,7 +119,10 @@ namespace Student_Course_Management_System.Controllers
                 ViewBag.Students = _context.Students.ToList();
                 ViewBag.Courses = _context.Courses.ToList();
 
-                ModelState.AddModelError("", "This student is already enrolled in this course.");
+                ModelState.AddModelError(
+                    "",
+                    "This student is already enrolled in this course."
+                );
 
                 return View(enrollment);
             }

@@ -61,7 +61,6 @@ namespace Student_Course_Management_System.Controllers
             oldC.Name = course.Name;
             oldC.Code = course.Code;
             oldC.CreditHours = course.CreditHours;
-            _context.Courses.Update(oldC);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
