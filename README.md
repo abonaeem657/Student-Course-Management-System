@@ -14,6 +14,7 @@ Install the .NET 8 SDK and SQL Server LocalDB. From the repository root:
 
 ```powershell
 dotnet restore "Student Course Management System.sln"
+dotnet ef database update --project ".\Student Course Management System\Student Course Management System.csproj"
 dotnet run --project ".\Student Course Management System\Student Course Management System.csproj"
 ```
 
