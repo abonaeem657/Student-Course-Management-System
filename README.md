@@ -17,7 +17,7 @@ dotnet restore "Student Course Management System.sln"
 dotnet run --project ".\Student Course Management System\Student Course Management System.csproj"
 ```
 
-The connection string in the app project targets `(localdb)\MSSQLLocalDB` and `StudentCourseDb`. Create the database and apply the project migrations if starting with a fresh LocalDB instance. Open the URL printed by `dotnet run`; no login is required.
+The connection string in the app project targets `(localdb)\MSSQLLocalDB` and `StudentCourseDb`. On a fresh LocalDB instance, install `dotnet-ef` if needed and run the migration command shown above. Open the URL printed by `dotnet run`; no login is required.
 
 ## Screenshots
 
@@ -26,3 +26,4 @@ These were captured from the running local application:
 ![Home page](docs/screenshots/home.png)
 
 ![Student list](docs/screenshots/students.png)
+
