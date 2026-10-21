@@ -1,4 +1,8 @@
-﻿# Student Course Management System
+![CampusDesk cover](docs/cover.svg)
+
+# Student Course Management System
+
+[Screenshots](#screenshots) | [Features](#features) | [Run locally](#run-locally)
 
 ASP.NET Core MVC application for managing students, courses, and enrollments. It uses .NET 8, Entity Framework Core, and SQL Server LocalDB.
 
@@ -24,9 +28,18 @@ The connection string in the app project targets `(localdb)\MSSQLLocalDB` and `S
 
 ## Screenshots
 
-New screenshots captured from the running local application:
+Captured from the running local application:
 
-![Home page](docs/screenshots/home-new.png)
+| Overview | Students |
+| --- | --- |
+| ![CampusDesk home page](docs/screenshots/home-new.png) | ![Student list](docs/screenshots/students-new.png) |
 
-![Student list](docs/screenshots/students-new.png)
+| Courses | Enrollments |
+| --- | --- |
+| ![Course list](docs/screenshots/courses.png) | ![Enrollment list](docs/screenshots/enrollments.png) |
 
+<details><summary>Narrow screen preview</summary>
+
+![CampusDesk on a narrow screen](docs/screenshots/home-mobile.png)
+
+</details>

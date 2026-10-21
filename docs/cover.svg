@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="420" viewBox="0 0 1400 420" role="img" aria-labelledby="title desc">
+<title id="title">CAMPUSDESK</title><desc id="desc">Students, courses and enrollments in one calm view.</desc>
+<defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#082b32"/><stop offset="1" stop-color="#115359"/></linearGradient><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity=".07"/></pattern></defs>
+<rect width="1400" height="420" rx="22" fill="url(#bg)"/><rect width="1400" height="420" rx="22" fill="url(#grid)"/>
+<circle cx="1274" cy="65" r="154" fill="#a8ead8" opacity=".07"/><path d="M0 374C341 269 606 432 969 326" fill="none" stroke="#a8ead8" stroke-opacity=".18" stroke-width="3"/>
+<rect x="69" y="64" width="12" height="12" rx="3" fill="#a8ead8"/><text x="97" y="76" fill="#a8ead8" font-family="Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="4">A CLEARER CAMPUS WORKSPACE</text>
+<text x="69" y="174" fill="#ffffff" font-family="Arial,sans-serif" font-size="62" font-weight="800" letter-spacing="-2">CAMPUSDESK</text>
+<rect x="71" y="207" width="86" height="5" rx="3" fill="#a8ead8"/>
+<text x="71" y="266" fill="#e7f4ed" font-family="Arial,sans-serif" font-size="23">Students, courses and enrollments in one calm view.</text>
+<rect x="69" y="323" width="615" height="52" rx="13" fill="#ffffff" fill-opacity=".09" stroke="#ffffff" stroke-opacity=".14"/>
+<text x="94" y="355" fill="#a8ead8" font-family="Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="1">ASP.NET CORE  /  EF CORE  /  LOCALDB</text>
+<rect x="963" y="115" width="277" height="194" rx="14" transform="rotate(-7 963 115)" fill="#428789" opacity=".6"/><rect x="990" y="112" width="300" height="220" rx="16" fill="#e3f0ea"/><rect x="1016" y="141" width="76" height="9" rx="4" fill="#22847c"/><rect x="1016" y="169" width="225" height="18" rx="6" fill="#173e48"/><rect x="1016" y="209" width="225" height="35" rx="8" fill="#c1ded5"/><circle cx="1040" cy="226" r="9" fill="#27897f"/><rect x="1060" y="220" width="124" height="10" rx="5" fill="#497d80"/><rect x="1016" y="257" width="225" height="35" rx="8" fill="#c1ded5"/><circle cx="1040" cy="274" r="9" fill="#27897f"/><rect x="1060" y="268" width="155" height="10" rx="5" fill="#497d80"/>
+</svg>
