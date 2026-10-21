@@ -1,5 +1,10 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<h1>Welcome to the Student Course Management System</h1>
+@{ ViewData["Title"] = "Overview"; }
+<section class="campus-hero">
+    <div><p class="eyebrow">Academic workspace</p><h1>Everything in<br><em>one clear place.</em></h1><p>Keep student records, courses, and enrollments organized in a simple academic workspace.</p><a asp-controller="Student" asp-action="Index" class="btn btn-primary mt-3">Explore students <span aria-hidden="true">↗</span></a></div>
+    <div class="campus-art" aria-hidden="true"><span>CD</span><small>STUDENTS · COURSES · ENROLLMENTS</small></div>
+</section>
+<section class="workspace-section" aria-labelledby="workspace-title"><div class="section-heading"><p class="eyebrow">Your workspace</p><h2 id="workspace-title">Manage the essentials</h2></div><div class="workspace-grid">
+    <a asp-controller="Student" asp-action="Index" class="workspace-card"><span class="card-index">01 / PEOPLE</span><h3>Students</h3><p>Review and maintain student profiles and majors.</p><span class="card-action">Open students ↗</span></a>
+    <a asp-controller="Course" asp-action="Index" class="workspace-card"><span class="card-index">02 / LEARNING</span><h3>Courses</h3><p>Keep course information easy to find and update.</p><span class="card-action">Open courses ↗</span></a>
+    <a asp-controller="Enrollment" asp-action="Index" class="workspace-card"><span class="card-index">03 / CONNECTIONS</span><h3>Enrollments</h3><p>Connect students and courses in one view.</p><span class="card-action">Open enrollments ↗</span></a>
+</div></section>

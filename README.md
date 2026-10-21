@@ -2,6 +2,8 @@
 
 ASP.NET Core MVC application for managing students, courses, and enrollments. It uses .NET 8, Entity Framework Core, and SQL Server LocalDB.
 
+The interface, branded **CampusDesk**, now has a responsive overview page with direct links to each workflow, a clearer navigation bar, and polished student, course, and enrollment lists with empty states and consistent actions.
+
 ## Features
 
 - View, create, edit, and delete student and course records.
@@ -22,9 +24,9 @@ The connection string in the app project targets `(localdb)\MSSQLLocalDB` and `S
 
 ## Screenshots
 
-These were captured from the running local application:
+New screenshots captured from the running local application:
 
-![Home page](docs/screenshots/home.png)
+![Home page](docs/screenshots/home-new.png)
 
-![Student list](docs/screenshots/students.png)
+![Student list](docs/screenshots/students-new.png)
 
